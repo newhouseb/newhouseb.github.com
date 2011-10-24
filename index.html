@@ -1,0 +1,118 @@
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"> </script>
+<script>
+(function() {
+    var sections = [];
+    var offset = 0;
+    var leftoffset = 0;
+
+    function checkScroll() {
+        for(var i = 0; i < sections.length; i++) {
+            if ($(document.body).scrollTop() + offset > sections[i][1] - i*100) {
+                sections[i][0].style.position = 'absolute';
+                sections[i][0].style.left = '-100px';
+                sections[i][0].style.top = 0;
+            } else {
+                sections[i][0].style.position = 'fixed'
+                sections[i][0].style.left = leftoffset;
+                sections[i][0].style.top = sections[i][2];
+            }
+        }
+        setTimeout(checkScroll, 30);
+    }
+
+    $(function() {
+        offset = $('#content').offset().top;
+        leftoffset = $('#content').offset().left;
+        $('.box').each(function(i) {
+            sections.push([$(this)[0], $(this).offset().top, (offset + i*100)]);
+            $(this).css({ position: 'fixed', left: '100px', top: (offset + i*100) + 'px' });
+        });
+        setTimeout(checkScroll, 30);
+    });
+})()
+</script>
+<style>
+body {
+background-color: white;
+background-image: url(http://subtlepatterns.com/patterns/square_bg.png);
+background-image: url(http://subtlepatterns.com/patterns/paven.png);
+background-image: url(http://subtlepatterns.com/patterns/small_tiles.png); 
+background-image: url(http://subtlepatterns.com/patterns/polaroid.png);
+background-image: url(http://subtlepatterns.com/patterns/fancy_deboss.png); 
+background-image: url(http://subtlepatterns.com/patterns/cubes.png);
+background-image: url(http://subtlepatterns.com/patterns/project_papper.png);
+background-image: url(http://subtlepatterns.com/patterns/whitey.png);
+background-image: url(http://subtlepatterns.com/patterns/white_carbon.png); 
+font-family: helvetica;
+text-align: justify;
+line-height: 30px;
+color: #444;
+}
+#content {
+    width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.box {
+    background-color: blue;
+    opacity: 0.7;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    position: absolute; 
+    top: 0px; 
+    left: -100px; 
+    width: 100px;
+    height: 64px;
+    border-bottom: 1px solid white;
+    padding-top: 35px;
+}
+.innercolumn {
+    width: 400px; 
+    position: relative; 
+    margin-left: 100px; 
+    margin-right: auto;
+}
+.section {
+    padding-left: 40px;
+    margin-bottom: 130px;
+}
+
+</style>
+</head>
+<body style="margin-top: 200px; margin-bottom: 1000px;">
+<div id='content'>
+<div class='innercolumn'>
+<div class='box'>About</div>
+<div class="section"><h1>About Ben Newhouse</h1><p>
+Sapiente irony commodo, mixtape officia before they sold out enim organic helvetica 8-bit craft beer sed nostrud qui. Irony eiusmod ethical ad, organic gluten-free deserunt quinoa qui. Terry richardson bicycle rights biodiesel eu beard, banh mi lo-fi sed qui deserunt. 3 wolf moon fap sed cred tumblr next level. Quinoa consequat nostrud terry richardson, fixie yr voluptate next level. Nisi sustainable wolf sapiente vice anim synth. Brooklyn cillum single-origin coffee irony viral.
+</p></p>
+High life pariatur keytar, ex wayfarers non nisi fanny pack. Jean shorts terry richardson velit consectetur, stumptown accusamus Austin pariatur. Photo booth jean shorts qui four loko, incididunt duis bicycle rights mixtape id. Cliche laborum quinoa, sunt nostrud williamsburg banh mi hoodie wolf master cleanse nisi cillum mollit dolor. Thundercats master cleanse pariatur, wes anderson incididunt chambray ullamco american apparel irure food truck. Leggings master cleanse banksy VHS iphone est. Gluten-free magna ad, artisan incididunt retro est dolor duis art party biodiesel high life dreamcatcher vegan esse.
+</p>
+</div>
+</div>
+<div class="innercolumn"> 
+        <div class='box'>Interests</div>
+        <div class="section">
+                <h1>About</h1>
+                <p>
+                Sapiente irony commodo, mixtape officia before they sold out enim organic helvetica 8-bit craft beer sed nostrud qui. Irony eiusmod ethical ad, organic gluten-free deserunt quinoa qui. Terry richardson bicycle rights biodiesel eu beard, banh mi lo-fi sed qui deserunt. 3 wolf moon fap sed cred tumblr next level. Quinoa consequat nostrud terry richardson, fixie yr voluptate next level. Nisi sustainable wolf sapiente vice anim synth. Brooklyn cillum single-origin coffee irony viral.
+                </p></p>
+                High life pariatur keytar, ex wayfarers non nisi fanny pack. Jean shorts terry richardson velit consectetur, stumptown accusamus Austin pariatur. Photo booth jean shorts qui four loko, incididunt duis bicycle rights mixtape id. Cliche laborum quinoa, sunt nostrud williamsburg banh mi hoodie wolf master cleanse nisi cillum mollit dolor. Thundercats master cleanse pariatur, wes anderson incididunt chambray ullamco american apparel irure food truck. Leggings master cleanse banksy VHS iphone est. Gluten-free magna ad, artisan incididunt retro est dolor duis art party biodiesel high life dreamcatcher vegan esse.
+                </p>
+        </div>
+</div>
+<div class="innercolumn"> 
+        <div class='box'>Elsewhere</div>
+        <div class="section">
+                <h1></h1>
+                <p>
+                Sapiente irony commodo, mixtape officia before they sold out enim organic helvetica 8-bit craft beer sed nostrud qui. Irony eiusmod ethical ad, organic gluten-free deserunt quinoa qui. Terry richardson bicycle rights biodiesel eu beard, banh mi lo-fi sed qui deserunt. 3 wolf moon fap sed cred tumblr next level. Quinoa consequat nostrud terry richardson, fixie yr voluptate next level. Nisi sustainable wolf sapiente vice anim synth. Brooklyn cillum single-origin coffee irony viral.
+                </p></p>
+                High life pariatur keytar, ex wayfarers non nisi fanny pack. Jean shorts terry richardson velit consectetur, stumptown accusamus Austin pariatur. Photo booth jean shorts qui four loko, incididunt duis bicycle rights mixtape id. Cliche laborum quinoa, sunt nostrud williamsburg banh mi hoodie wolf master cleanse nisi cillum mollit dolor. Thundercats master cleanse pariatur, wes anderson incididunt chambray ullamco american apparel irure food truck. Leggings master cleanse banksy VHS iphone est. Gluten-free magna ad, artisan incididunt retro est dolor duis art party biodiesel high life dreamcatcher vegan esse.
+                </p>
+        </div>
+</div>
+</div>
+</body>
