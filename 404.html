@@ -5,7 +5,7 @@
 <script src="https://raw.github.com/newhouseb/github/master/github.js"></script>
 <script>
 window.onload = function() {
-    if(window.cookie.split('=')[0] != 'access_token') {
+    if(!window.cookie || window.cookie.split('=')[0] != 'access_token') {
        window.cookie = 'access_token=' + prompt('enter your access token');
     }
     var github = new Github({
