@@ -2,13 +2,11 @@
 <script src="http://underscorejs.org/underscore-min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://raw.github.com/michael/github/master/test/vendor/base64.js"></script>
-<script src="https://raw.github.com/michael/github/master/github.js"></script>
+<script src="https://raw.github.com/newhouseb/github/master/github.js"></script>
 <script>
 window.onload = function() {
     var github = new Github({
-      username: 'newhouseb',
-      password: prompt('Github password'),
-      auth: "basic"
+      access_token: prompt('Access token');
     });
     var reponame = window.location.href.split('/')[3]
     var repo = github.getRepo('playground');
