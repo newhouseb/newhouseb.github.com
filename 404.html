@@ -6,17 +6,14 @@
 <script>
 window.onload = function() {
     var github = new Github({
-      access_token: prompt('Access token');
+      username: 'newhouseb',
+      access_token: prompt('Access token')
     });
     var reponame = window.location.href.split('/')[3]
-    var repo = github.getRepo('playground');
-    repo.read('index.html', function(err, data) {
+    var repo = github.getRepo(reponame);
+    repo.read(window.location.href.substring(('http://newhouseb.github.com/'+reponame+'/').length), function(err, data) {
         document.write(data);
     });
-
-   /* repo.read(window.location.href.substring(('http://newhouseb.github.com/'+reponame+'/').length), function(err, data) {
-        document.write(data);
-    });*/
 };
 </script>
 <body>
