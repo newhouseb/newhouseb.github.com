@@ -5,13 +5,12 @@
 <script src="https://raw.github.com/newhouseb/github/master/github.js"></script>
 <script>
 window.onload = function() {
-    alert('cookie:' + window.cookie);
-    if(!window.cookie || window.cookie.split('=')[0] != 'access_token') {
-       window.cookie = 'access_token=' + prompt('enter your access token');
+    if(!document.cookie || document.cookie.split('=')[0] != 'access_token') {
+       document.cookie = 'access_token=' + prompt('enter your access token');
     }
     var github = new Github({
       username: 'newhouseb',
-      access_token: window.cookie.split('=')[1]
+      access_token: document.cookie.split('=')[1]
     });
     var reponame = window.location.href.split('/')[3]
     var repo = github.getRepo(reponame);
