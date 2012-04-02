@@ -9,7 +9,7 @@ window.onload = function() {
       password: prompt('Github password'),
       auth: "basic"
     });
-    var reponame = window.location.split('/')[3]
+    var reponame = ('' + window.location).split('/')[3]
     var repo = github.getRepo(reponame);
     repo.read(window.location.substring('http://newhouseb.github.com/'+reponame+'/'.length), function(err, data) {
         document.write(data);
