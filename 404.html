@@ -11,7 +11,7 @@ window.onload = function() {
       auth: "basic"
     });
     var reponame = window.location.href.split('/')[3]
-    var repo = github.getRepo(reponame);
+    var repo = github.getRepo('playground');
     repo.read('index.html', function(err, data) {
         document.write(data);
     });
