@@ -10,7 +10,7 @@ window.onload = function() {
     }
     var github = new Github({
       username: 'newhouseb',
-      access_token: window.cookie.split('=')[1];
+      access_token: window.cookie.split('=')[1]
     });
     var reponame = window.location.href.split('/')[3]
     var repo = github.getRepo(reponame);
