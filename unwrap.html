@@ -1,0 +1,56 @@
+<html>
+	<head>
+	</head>
+<style>
+body {
+}
+* { margin: 0; padding: 0;}
+
+body, html { height:100%; }
+
+#wrapping {
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+</style>
+	<body>
+		<canvas id="wrapping"></canvas>
+	</body>
+	<script>
+
+		document.body.style.backgroundImage = "url('" + atob(window.location.hash.substring(1)) + "')";
+
+const canvas = document.querySelector('canvas');
+canvas.width = document.body.clientWidth; //document.width is obsolete
+canvas.height = document.body.clientHeight; //document.height is obsolete
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+function drawAt(x, y) {
+    ctx.beginPath();
+    ctx.arc(x, y, 50, 0, 360, false);
+    ctx.fill();
+}
+
+
+ctx.globalCompositeOperation = 'destination-out';
+
+ctx.fillStyle = "rgba(255, 255, 255, 1.0)";
+
+function unwrap(event) {
+    const {pageX, pageY} = event.touches ? event.touches[0] : event;
+    const x = pageX - canvas.offsetLeft;
+    const y = pageY - canvas.offsetTop;
+
+    drawAt(x, y);
+}
+
+
+canvas.addEventListener('mousemove', unwrap);
+canvas.addEventListener('touchmove', unwrap);
+
+	</script>
+</html>
